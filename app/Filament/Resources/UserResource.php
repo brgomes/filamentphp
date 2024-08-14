@@ -31,6 +31,8 @@ class UserResource extends Resource
 
     protected static ?string $breadcrumb = 'Usuários';
 
+    protected static ?string $navigationGroup = 'Cadastros';
+
     public static function form(Form $form): Form
     {
         return $form
@@ -67,7 +69,9 @@ class UserResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()
-                    ->label('Alterar'),
+                    ->label('Alterar usuário')
+                    ->icon('heroicon-m-pencil-square')
+                    ->iconButton(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
