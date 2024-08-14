@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  filamentphp:
+    container_name: filamentphp
+    build: ./
+    ports:
+      - 8093:80
+    volumes:
+      - ./.docker/php.ini:/usr/local/etc/php/php.ini
+      - ./.docker/apache/logs:/var/log/apache2
+      - ./:/var/www
+    networks:
+      - localnet
+
+networks:
+  localnet:
+    external: true
